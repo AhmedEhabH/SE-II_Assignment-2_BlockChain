@@ -25,3 +25,13 @@ class Block:
             self.nonce += 1
             self.block_hash = self.calc_hash()
         print("Block Mined " + self.block_hash)
+        
+        def add_transaction(self, transaction):
+        # print(transaction)
+        if transaction is not None: return False
+        if self.prev_hash != '0' or not transaction:
+            print("Transaction failed to process. Discarded.")
+            return False
+        self.transactions.append(transaction)
+        print("Transaction Successfully added to Block")
+        return True
